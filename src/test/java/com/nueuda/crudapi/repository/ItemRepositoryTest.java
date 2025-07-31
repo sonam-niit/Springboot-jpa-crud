@@ -19,9 +19,8 @@ public class ItemRepositoryTest {
     @Test
     void testFindAll() {
         List<Item> items = itemRepository.findAll();
-        System.out.println(items);
         Assertions.assertFalse(items.isEmpty(), "Items should not be empty");
-        Assertions.assertTrue(items.size() >= 1, "Should have at least 5 seeded items");
+        Assertions.assertTrue(items.size() >= 5, "Should have at least 5 seeded items");
     }
 
     @Test
@@ -35,10 +34,10 @@ public class ItemRepositoryTest {
 
     @Test
     void testSave() {
-        Item newItem = new Item("Mango", 1.99);
+        Item newItem = new Item("Pear", 1.49);
         Item saved = itemRepository.save(newItem);
         Assertions.assertNotNull(saved.getId(), "Saved item should have an id");
-        Assertions.assertEquals("Mango", saved.getName());
+        Assertions.assertEquals("Pear", saved.getName());
     }
 
     @Test
